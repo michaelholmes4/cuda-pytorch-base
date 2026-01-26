@@ -22,8 +22,7 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 &
     update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
 
 # Install uv
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:$PATH"
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Pre-install PyTorch with CUDA 12.8 support
 RUN uv pip install --system \

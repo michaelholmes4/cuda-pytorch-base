@@ -12,7 +12,7 @@ Public base image with CUDA, uv and tools.
 - **NVIDIA CUDA**: 12.8.0 runtime
 - **uv**: Fast Python package manager
 - **PyTorch**: 2.7.1 (with CUDA 12.8 support)
-- **Tools**: git, curl, rclone, wget
+- **Tools**: git, curl, rclone, wget, ssh
 
 ## Usage
 

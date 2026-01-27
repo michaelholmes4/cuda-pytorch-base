@@ -1,6 +1,6 @@
 # CUDA PyTorch Base Image
 
-Public base image with CUDA 12.8, Python 3.12 and uv.
+Public base image with CUDA, uv and tools.
 
 ## Image Tags
 
@@ -10,7 +10,6 @@ Public base image with CUDA 12.8, Python 3.12 and uv.
 ## What's Included
 
 - **NVIDIA CUDA**: 12.8.0 runtime
-- **Python**: 3.12
 - **uv**: Fast Python package manager
 - **PyTorch**: 2.7.1 (with CUDA 12.8 support)
 - **Tools**: git, curl, rclone, wget

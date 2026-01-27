@@ -27,19 +27,6 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 &
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# Pre-install PyTorch with CUDA 12.8 support
-RUN uv pip install --system \
-    torch==2.7.1 \
-    torchvision==0.22.1 \
-    torchaudio==2.7.1 \
-    --index-url https://download.pytorch.org/whl/cu128
-
-# Pre-install common scientific packages
-RUN uv pip install --system \
-    numpy \
-    scipy \
-    tensorboard
-
 WORKDIR /workspace
 
 CMD ["/bin/bash"]

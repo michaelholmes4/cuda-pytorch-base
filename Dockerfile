@@ -5,7 +5,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     UV_SYSTEM_PYTHON=1
 
-# Install Python 3.12 and essential tools
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     && add-apt-repository ppa:deadsnakes/ppa \
@@ -15,10 +14,20 @@ RUN apt-get update && apt-get install -y \
     rclone \
     wget \
     ca-certificates \
+    openssh-server \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Setup SSH for Runpod
+RUN mkdir -p /var/run/sshd && \
+    mkdir -p ~/.ssh && \
+    chmod 700 ~/.ssh && \
+    ssh-keygen -A
+
+# Expose SSH port
+EXPOSE 22
 
 WORKDIR /workspace
 
